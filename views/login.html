@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+
+      <meta charset="utf-8" />
+      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <!-- jquery -->
+      <script src="/vendor/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap JS -->
+      <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- underscore -->
+      <script src="/vendor/underscore/underscore-min.js"></script>
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+      <!-- local -->
+      <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+      <script src="/static/js/app.js"></script>
+</head>
+<body>
+  <h1>Login</h1>
+  <form method="post" action="/login">
+    <div>
+      <input type="text" name="user[email]" placeholder="Email">
+    </div>
+    <div>
+      <input type="password" name="user[password]" placeholder="Password">
+    </div>
+    <button>Login</button>
+  </form>
+</body>
+</html>

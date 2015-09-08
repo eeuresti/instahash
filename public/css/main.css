@@ -1,0 +1,13 @@
+.jumbotron {
+    position: relative;
+    background: #000 url("images/Instagram-logo.png") center center;
+    width: 50%;
+    height: 75%;
+    background-size: cover;
+    overflow: hidden;
+    margin-left: 350px;
+    margin-top: 75px;
+}
+div.jumbotron {
+  text-align: center;
+}
