@@ -63,8 +63,9 @@ app.post(["/users", "/signup"], function signup(req, res) {
   var user = req.body.user;
   var email = user.email;
   var password = user.password;
-  db.User.createSecure(email, password, function() {
-    res.send(email + " is registered!\n");
+  db.User.createSecure(email, password, function(err, user) {
+    req.login(user);
+    res.redirect("/profile");
   });
 });
 
@@ -82,7 +83,11 @@ app.post(["/sessions", "/login"], function login(req, res) {
 // show the current user
 app.get("/profile", function userShow(req, res) {
   req.currentUser(function (err, user) {
-    res.send("Hello " + user.email);
+    if (user === null) {
+      res.redirect("/signup");
+    } else {
+      res.send("Hello " + user.email);
+    }
   });
 });
 
