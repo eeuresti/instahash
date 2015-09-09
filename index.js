@@ -3,6 +3,8 @@ var express = require('express'),
     db = require('./models'),
     session = require('express-session'),
     path = require('path'),
+    keygen = require('keygenerator'),
+    // methodOverride = require('method-override'),
     app = express();
 
 // views path
@@ -13,10 +15,12 @@ app.use("/vendor", express.static("bower_components"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+// app.use(methodOverride('_method'));
+
 // create our session
 app.use(
   session({
-    secret: 'super-secret-private-keyyy',
+    secret: keygen._({specials: true}),
     resave: false,
     saveUninitialized: true
   })
@@ -55,8 +59,10 @@ app.get("/login", function (req, res) {
 
 // signup route
 app.get("/signup", function (req, res) {
-  res.sendFile(path.join(views, "signup.html"));
+  res.sendFile(path.join(views, "login.html"));
 });
+
+
 
 // where the user submits the sign-up form
 app.post(["/users", "/signup"], function signup(req, res) {
@@ -65,7 +71,7 @@ app.post(["/users", "/signup"], function signup(req, res) {
   var password = user.password;
   db.User.createSecure(email, password, function(err, user) {
     req.login(user);
-    res.redirect("/profile");
+    res.redirect("/login");
   });
 });
 
@@ -76,7 +82,7 @@ app.post(["/sessions", "/login"], function login(req, res) {
   var password = user.password;
   db.User.authenticate(email, password, function (err, user) {
     req.login(user);
-    res.redirect("/profile");
+    res.redirect("/login");
   });
 });
 

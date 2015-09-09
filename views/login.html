@@ -35,7 +35,9 @@
                 </ul>
                 <form class="navbar-form" role="search">
                     <div class="form-group navbar-right">
-                        <button type="logoutbtn" class="btn btn-default">Logout</button>
+                      <form method="post" action="/logout?_method=DELETE">
+<button type="submit">Logout</button>
+</form>
                     </div>
                 </form>
             </div>
