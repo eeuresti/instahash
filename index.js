@@ -66,9 +66,11 @@ app.get("/signup", function (req, res) {
 
 // where the user submits the sign-up form
 app.post(["/users", "/signup"], function signup(req, res) {
-  var user = req.body.user;
-  var email = user.email;
-  var password = user.password;
+  var email = req.body.email;
+  var password = req.body.password;
+
+
+  
   db.User.createSecure(email, password, function(err, user) {
     req.login(user);
     res.redirect("/login");
@@ -77,9 +79,9 @@ app.post(["/users", "/signup"], function signup(req, res) {
 
 // where the user submits the login form
 app.post(["/sessions", "/login"], function login(req, res) {
-  var user = req.body.user;
-  var email = user.email;
-  var password = user.password;
+  var email = req.body.email;
+  var password = req.body.password;
+  console.log(email + " " + password);
   db.User.authenticate(email, password, function (err, user) {
     req.login(user);
     res.redirect("/login");
