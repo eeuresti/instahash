@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Login</title>
 
-      <meta charset="utf-8" />
-      <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <!-- jquery -->
-      <script src="/vendor/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap JS -->
-      <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- underscore -->
-      <script src="/vendor/underscore/underscore-min.js"></script>
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
-      <!-- local -->
-      <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-      <script src="/static/js/app.js"></script>
+<head>
+    <title>Login</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- jquery -->
+    <script src="/vendor/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- underscore -->
+    <script src="/vendor/underscore/underscore-min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- local -->
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <script src="/static/js/app.js"></script>
 </head>
+
 <body>
-  <h1>Login</h1>
-  <form method="post" action="/login">
-    <div>
-      <input type="text" name="user[email]" placeholder="Email">
-    </div>
-    <div>
-      <input type="password" name="user[password]" placeholder="Password">
-    </div>
-    <button>Login</button>
-  </form>
-</body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    </li>
+                </ul>
+                <form class="navbar-form" role="search">
+                    <div class="form-group navbar-right">
+                        <button type="logoutbtn" class="btn btn-default">Logout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </nav>
+      <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700italic' rel='stylesheet' type='text/css'>
+      <h1>InstaHash</h1>
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+
 </html>

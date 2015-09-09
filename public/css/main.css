@@ -24,6 +24,10 @@ p {
   font-family: 'Playfair Display SC', serif;
   text-align: center;
 }
-#signup-button{
+#signup-button {
   float: left;
+}
+
+div.col-lg-6 {
+  margin-left: 330px;
 }
