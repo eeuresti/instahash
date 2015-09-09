@@ -70,7 +70,7 @@ app.post(["/users", "/signup"], function signup(req, res) {
   var password = req.body.password;
 
 
-  
+  console.log(email + " has signed up");
   db.User.createSecure(email, password, function(err, user) {
     req.login(user);
     res.redirect("/login");
@@ -81,7 +81,7 @@ app.post(["/users", "/signup"], function signup(req, res) {
 app.post(["/sessions", "/login"], function login(req, res) {
   var email = req.body.email;
   var password = req.body.password;
-  console.log(email + " " + password);
+    console.log(email + " has logged in");
   db.User.authenticate(email, password, function (err, user) {
     req.login(user);
     res.redirect("/login");
