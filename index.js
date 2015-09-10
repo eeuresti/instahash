@@ -4,7 +4,7 @@ var express = require('express'),
     session = require('express-session'),
     path = require('path'),
     keygen = require('keygenerator'),
-    // methodOverride = require('method-override'),
+    methodOverride = require('method-override'),
     app = express();
 
 // views path
@@ -15,7 +15,7 @@ app.use("/vendor", express.static("bower_components"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 
 // create our session
 app.use(
@@ -102,7 +102,7 @@ app.get("/profile", function userShow(req, res) {
 // logout the user
 app.delete(["/sessions", "/logout"], function(req, res) {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
 
 var listener = app.listen(3000, function () {

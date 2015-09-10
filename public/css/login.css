@@ -70,3 +70,7 @@ div#buttons {
 .picturediv {
 	display: inline-block;
 }
+p {
+  text-align: center;
+  font-family: 'Playfair Display SC', serif;
+}
