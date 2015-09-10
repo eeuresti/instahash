@@ -21,29 +21,19 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header"></div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav"></ul>
-                <form class="navbar-form" role="search">
-                    <div class="form-group navbar-right">
-                        <form method="post" action="/logout?_method=DELETE">
-                            <button>Logout</button>
-                        </form>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
+
+
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700italic' rel='stylesheet' type='text/css'>
     <h1>InstaHash</h1>
     <p>Enter a hashtag minus the #</p>
     <div id="top_section">
         <input type="text" name="instagramSearch" id="value">
         <div id="buttons">
-            <button id="morepictures" class="button">Find More Pictures</button>
-            <button id="clearpictures" class="button">Clear All Pictures</button>
+            <button id="morepictures" class="button">Find Pictures</button>
+            <button id="clearpictures" class="button">Clear Pictures</button>
+            <form method="post" action="/logout?_method=DELETE">
+                <button type="submit">Logout</button>
+            </form>
         </div>
     </div>
     <div id="container">
