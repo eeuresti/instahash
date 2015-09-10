@@ -1,0 +1,72 @@
+h1 {
+  font-family: 'Playfair Display SC', serif;
+  text-align: center;
+  font-size: 75px;
+  margin-top: 50px;
+}
+div#top_section {
+  text-align: center;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	width: 245px;
+	height: 35px;
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Maven Pro;
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#container {
+	width: 100%;
+	position: relative;
+	display: inline-block;
+}
+
+.fixed {
+	position: fixed;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}
+div#buttons {
+  margin-top: -30px;
+}
+
+#morepictures {
+	margin-bottom: 20px;
+}
+
+#output div {
+	display: inline-block;
+}
+
+.picturediv {
+	display: inline-block;
+}
+
+#output {
+	position: absolute;
+	float: right;
+	margin-right: 80px;
+	margin-left: 154px;
+}
+
+#output img {
+	-webkit-box-shadow: 2px 2px 10px 0px rgba(50, 50, 50, 0.59);
+	-moz-box-shadow: 2px 2px 10px 0px rgba(50, 50, 50, 0.59);
+	box-shadow: 2px 2px 10px 0px rgba(50, 50, 50, 0.59);
+	height: 150px;
+}
+
+.picturediv {
+	display: inline-block;
+}

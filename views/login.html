@@ -16,7 +16,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
     <!-- local -->
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/login.css">
     <script src="/static/js/app.js"></script>
 </head>
 
@@ -35,24 +35,27 @@
                 </ul>
                 <form class="navbar-form" role="search">
                     <div class="form-group navbar-right">
-                      <form method="post" action="/logout?_method=DELETE">
-<button type="submit">Logout</button>
-</form>
+                        <form method="post" action="/logout?_method=DELETE">
+                            <button type="submit">Logout</button>
+                        </form>
                     </div>
                 </form>
             </div>
         </div>
-      </nav>
-      <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700italic' rel='stylesheet' type='text/css'>
-      <h1>InstaHash</h1>
-        <div class="col-lg-6">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
+    </nav>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,700italic' rel='stylesheet' type='text/css'>
+    <h1>InstaHash</h1>
+    <div id="top_section">
+        <input type="text" name="instagramSearch" id="value">
+        <div id="buttons">
+            <button id="morepictures" class="button">Find More Pictures</button>
+            <button id="clearpictures" class="button">Clear All Pictures</button>
+        </div>
+    </div>
+    <div id="container">
+        <div id="output">
+        </div>
+    </div>
+
 
 </html>
