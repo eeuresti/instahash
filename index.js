@@ -105,6 +105,6 @@ app.delete(["/sessions", "/logout"], function(req, res) {
   res.redirect("/");
 });
 
-var listener = app.listen(3000, function () {
+var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Listening on port " + listener.address().port);
 });
