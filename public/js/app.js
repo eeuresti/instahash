@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	$("input").focus();
 
+	var tag = '';
 	var min = '';
 	var url = '';
 
@@ -35,6 +36,23 @@ $(document).ready(function() {
 	$("#morepictures").on("click", function() {
 		loadInstagramPhotos();
 	});
+	//make a button on html to save search
+	$("#savesearch").on("click", function() {
+		console.log("Save this tag: " + tag);
+
+		$.post("/saveSearch", {searchTerm: tag})
+				 .done(function(res){
+					 res.send(res);
+		});
+	});
+
+	$.get("/showSearches", function() {
+				// display a simple list of searchTerms
+				var showSearches = res.reverse();
+				console.log(searches);
+				render(response.data);
+	});
+//display a list of previous searches
 
 	$("#clearpictures").on("click", function() {
 		$("#output").empty();
@@ -46,9 +64,4 @@ $(document).ready(function() {
 		this.value = '';
 	});
 
-	var timerId;
-	$("input").keyup(function() {
-		clearTimeout(timerId);
-		timerId = setTimeout(function() {loadInstagramPhotos(); }, 500);
-	});
 });

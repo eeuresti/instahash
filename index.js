@@ -103,6 +103,33 @@ app.post("/login", function(req, res) {
 	});
 });
 
+app.post('/saveSearch', function(req, res) {
+  db.User.findOne({_id: req.session.userId}, function(err, user) {
+   if(err) {console.log(err);}
+   var searchTerm = req.body.data;
+   console.log("Index.js has searchTerm: " + searchTerm);
+
+   user.searches.push(some);
+   user.save(function(err, success) {
+      if (err) {return console.log(err);}
+      console.log("You saved an embedded document. Swag.");
+     });
+  });
+   res.redirect('/login');
+});
+//find the current user
+// display all of the searchTerms stored in his/her searches array
+// hint, look at seed.js for a REALLY REALLY good clue.
+app.get('/showSearches', function(req,res) {
+    db.User.find({}, function (massiveNuclearError, lifeGoesOn) {
+      if(massiveNuclearError) {return console.log(massiveNuclearError);}
+      console.log("Total number of database entries: " + lifeGoesOn.length);
+      lifeGoesOn.forEach(function(dbEntry){
+        console.log(dbEntry.searches);
+      });
+    });
+});
+
 // show the current user
 app.get("/profile", function userShow(req, res) {
   req.currentUser(function (err, user) {

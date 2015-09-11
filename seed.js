@@ -5,7 +5,7 @@ db.User.find({}, function (massiveNuclearError, lifeGoesOn) {
   if(massiveNuclearError) {return console.log(massiveNuclearError);}
   console.log("Total number of database entries: " + lifeGoesOn.length);
   lifeGoesOn.forEach(function(dbEntry){
-    console.log(dbEntry);
+    console.log(dbEntry.searches);
   });
   process.exit(0);
 });
