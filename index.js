@@ -12,10 +12,9 @@ var views = path.join(process.cwd(), "views");
 
 app.use("/static", express.static("public"));
 app.use("/vendor", express.static("bower_components"));
-
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(methodOverride('_method'));
+
 
 // create our session
 app.use(
@@ -48,11 +47,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-// login route
+// home route
 app.get("/", function (req, res) {
   res.sendFile(path.join(views, "index.html"));
 });
 
+// login route
 app.get("/login", function (req, res) {
   res.sendFile(path.join(views, "login.html"));
 });
@@ -60,6 +60,16 @@ app.get("/login", function (req, res) {
 // signup route
 app.get("/signup", function (req, res) {
   res.sendFile(path.join(views, "login.html"));
+});
+
+// saveSearch route
+app.get("/saveSearch", function (req, res) {
+  res.sendFile(path.join(views, "saveSearch.html"));
+});
+
+// showSearch route
+app.get("/showSearches", function (req, res) {
+  res.sendFile(path.join(views, "saveSearch.html"));
 });
 
 
@@ -105,18 +115,24 @@ app.post("/login", function(req, res) {
 
 app.post('/saveSearch', function(req, res) {
   db.User.findOne({_id: req.session.userId}, function(err, user) {
-   if(err) {console.log(err);}
-   var searchTerm = req.body.data;
-   console.log("Index.js has searchTerm: " + searchTerm);
-
-   user.searches.push(some);
-   user.save(function(err, success) {
-      if (err) {return console.log(err);}
+    var searchTerm = req.body.data;
+   if(err) {
+    console.log(err, "this shit is broken");
+   }
+   else {
+    console.log("Index.js has searchTerm: " + searchTerm);
+    db.user.searches.push(searchTerm);
+    db.user.save(function(err, success) {
+    if (err) {
+      return console.log(err);
+    }
       console.log("You saved an embedded document. Swag.");
-     });
+    });
+   }
   });
    res.redirect('/login');
 });
+
 //find the current user
 // display all of the searchTerms stored in his/her searches array
 // hint, look at seed.js for a REALLY REALLY good clue.

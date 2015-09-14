@@ -42,16 +42,18 @@ $(document).ready(function() {
 
 		$.post("/saveSearch", {searchTerm: tag})
 				 .done(function(res){
-					 res.send(res);
+					 res.send(tag);
 		});
 	});
 
-	$.get("/showSearches", function() {
+	$.get("/saveSearch", function() {
+		console.log("save sarches works!");
 				// display a simple list of searchTerms
 				var showSearches = res.reverse();
 				console.log(searches);
 				render(response.data);
 	});
+
 //display a list of previous searches
 
 	$("#clearpictures").on("click", function() {
@@ -63,5 +65,16 @@ $(document).ready(function() {
 	$("input").on("click focusin", function() {
 		this.value = '';
 	});
+
+
+
+
+$(".pastSearches").on("click", function(){
+		window.location.href = "/saveSearch.html";
+	});
+
+     
+
+
 
 });
