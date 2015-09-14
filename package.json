@@ -21,7 +21,8 @@
   "devDependencies": {},
   "description": ""
 }
-"scripts": {
-   "start": "node index.js",
-   "postinstall": "bower install"    
+{"scripts" :
+  { "start": "node index.js",
+   "postinstall": "bower install"
   }
+}
