@@ -76,9 +76,16 @@ app.get("/showSearches", function (req, res) {
 
 // where the user submits the sign-up form
 app.post(["/users", "/signup"], function signup(req, res) {
+/*
+    jc - this is great validation! Let's make these pop up
+    as alerts or have them appended to your site dynamically.
+    Dumping a user to raw data w/ error is a good stopgap but
+    won't work in production
+*/
   if (req.body.password.length < 6) {
   		res.status(400).send({message: "invalid password: Needs to be at least 8 characters"});
   	} else {
+      /* jc - thank you for accessing your db :) */
   		db.User.find({email: req.body.email}, function(err, found) {
   			if (found.length > 0) {
   				res.status(400).send({message: "email already exists"});
@@ -91,7 +98,7 @@ app.post(["/users", "/signup"], function signup(req, res) {
             req.login(user);
                 res.redirect("/login");
           });
-			}
+			  }
 		});
 	}
 });
@@ -99,11 +106,14 @@ app.post(["/users", "/signup"], function signup(req, res) {
 
 // where the user submits the login form
 app.post("/login", function(req, res) {
-	var userData = {
-		email: req.body.email,
-		password: req.body.password
-	};
-	db.User.authenticate(userData.email, userData.password, function(err, user) {
+  /*
+      jc - userData is a little redundant
+      consider this simplification:
+  */
+		email= req.body.email,
+		password= req.body.password
+
+	db.User.authenticate(email, password, function(err, user) {
 		if (user !== undefined) {
 			req.login(user);
 			res.redirect("/login");
@@ -114,9 +124,12 @@ app.post("/login", function(req, res) {
 });
 
 app.post('/saveSearch', function(req, res) {
+  /* jc - thank you for acessing your db*/
+  /* TODO: refine this code to successfully embed */
   db.User.findOne({_id: req.session.userId}, function(err, user) {
     var searchTerm = req.body.data;
    if(err) {
+    /* jc - not production quality debugging message ;)*/
     console.log(err, "this shit is broken");
    }
    else {
@@ -134,9 +147,9 @@ app.post('/saveSearch', function(req, res) {
 });
 
 //find the current user
-// display all of the searchTerms stored in his/her searches array
-// hint, look at seed.js for a REALLY REALLY good clue.
+/* jc - TODO: once your saveSearch works, get this working */
 app.get('/showSearches', function(req,res) {
+    /* jc - thank you for accessing your db :) */
     db.User.find({}, function (massiveNuclearError, lifeGoesOn) {
       if(massiveNuclearError) {return console.log(massiveNuclearError);}
       console.log("Total number of database entries: " + lifeGoesOn.length);

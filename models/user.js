@@ -3,13 +3,11 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     bcrypt = require('bcrypt');
 
-// user's subdocument
+// user's subdocument 
 var searchSchema = new Schema ({
   searTerm: { type: String, required: true},
   date: { type: String, required: true}
 });
-
-
 
 // create user schema
 var UserSchema = new Schema({
